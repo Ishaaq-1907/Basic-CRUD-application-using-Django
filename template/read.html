@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory</title>
+    <link rel="stylesheet" href="{% static 'css/read.css' %}">
+</head>
+<body>
+    <div class="student-directory">
+        <header class="directory-header">
+            <h2>Student Directory</h2>
+            <a href="{% url 'create_student' %}" class="new-student-btn">Add New Student</a>
+        </header>
+
+        {% if students %}
+        <div class="student-listing">
+            <div class="listing-header">
+                <span class="name-col">Name</span>
+                <span class="email-col">Email</span>
+                <span class="password-col">Password</span>
+                <span class="actions-col">Actions</span>
+            </div>
+
+            {% for student in students %}
+            <div class="student-entry">
+                <span class="name-col">{{ student.name }}</span>
+                <span class="email-col">{{ student.mail }}</span>
+                <span class="password-col">{{ student.password }}</span>
+                <span class="actions-col">
+                    <a href="{% url 'update_student' student.id %}" class="edit-link">Edit</a>
+                   <a href="{% url 'delete_student' student.id %}"
+   class="delete-link with-icon"
+   onclick="return confirm('Delete {{ student.name }}?')">
+   Delete
+</a>
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-students">
+            <p>No students in the directory</p>
+            <a href="{% url 'create_students' %}" class="new-student-btn">Add First Student</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

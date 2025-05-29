@@ -1,0 +1,152 @@
+/* Minimalist Student Directory */
+:root {
+    --primary: #14b8a6;          /* Teal 500 */
+    --secondary: #6366f1;        /* Indigo 500 */
+    --accent: #0ea5e9;           /* Sky Blue 500 */
+    --danger: #ef4444;           /* Red 500 */
+    --border: #e2e8f0;           /* Slate 200 */
+    --text: #1e293b;             /* Slate 800 */
+    --light-text: #94a3b8;       /* Slate 400 */
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8fafc;
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    margin: 0;
+}
+
+.student-directory {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.directory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.directory-header h2 {
+    font-weight: 400;
+    color: var(--primary);
+    margin: 0;
+}
+
+.new-student-btn {
+    background-color: var(--primary);
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.new-student-btn:hover {
+    background-color: #0d9488; /* Darker Teal */
+}
+
+/* Student Listing */
+.student-listing {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.listing-header {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 15px;
+    font-weight: 500;
+}
+
+.student-entry {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    padding: 12px 15px;
+    border-top: 1px solid var(--border);
+    align-items: center;
+}
+
+.student-entry:hover {
+    background-color: #f1f5f9;
+}
+
+/* Columns */
+.name-col,
+.email-col,
+.password-col {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Actions */
+.actions-col {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-link {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.edit-link:hover {
+    color: var(--secondary);
+}
+
+.delete-link {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: #f1f5f9;
+    color: var(--danger);
+    text-decoration: none;
+    border: 1px solid var(--danger);
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.delete-link:hover {
+    background-color: var(--danger);
+    color: white;
+    text-decoration: none;
+}
+
+.delete-link:active {
+    transform: translateY(1px);
+}
+
+/* If you want an icon version */
+.delete-link.with-icon {
+    padding: 4px 8px 4px 6px;
+}
+
+.delete-link.with-icon::before {
+    content: "🗑️"; /* Trash can emoji */
+    margin-right: 4px;
+    font-size: 12px;
+}
+
+/* Empty State */
+.no-students {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.no-students p {
+    color: var(--light-text);
+    margin-bottom: 20px;
+}
